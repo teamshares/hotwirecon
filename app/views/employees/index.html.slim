@@ -1,0 +1,20 @@
+p style="color: green" = notice
+
+.flex.justify-between.w-full.mb-2
+  h2 Employees
+  sl-button variant="primary" href="#{new_employee_path}" circle=true
+    sl-icon name="plus"
+
+.table.w-full id="employees"
+  .tr
+    .th First name
+    .th Last name
+    .th Phone
+    .th Email
+    .th Birthday
+    .th Country
+    .th Active
+    .th Company
+    .th
+  - @employees.each do |employee|
+    = render employee

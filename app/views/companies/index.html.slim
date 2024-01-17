@@ -1,0 +1,17 @@
+p style="color: green" = notice
+
+.flex.justify-between.w-full.mb-2
+  h2 Companies
+  sl-button[
+    href="#{new_company_path}"
+    variant="primary"
+    circle
+  ]
+    sl-icon name="plus"
+
+.table.w-full id="companies"
+  .tr
+    .th Name
+  - @companies.each do |company|
+    = render company
+
