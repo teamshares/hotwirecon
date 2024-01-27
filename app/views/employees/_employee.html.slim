@@ -1,11 +1,31 @@
 .tr id=dom_id(employee)
-  .td= employee.first_name
-  .td= employee.last_name
-  .td= employee.phone
-  .td= employee.email
-  .td= employee.birthday
-  .td= employee.country
-  .td= employee.active
-  .td= employee.company_id
-  .td= link_to employee do
-    sl-icon name="eye"
+  .group
+    .td
+      label First:
+      = employee.first_name
+    .td
+      label Last:
+      = employee.last_name
+    .td
+      label Phone:
+      = employee.phone
+    .td
+      label Email:
+      = employee.email
+  .group
+    .td
+      label Birthday:
+      = employee.birthday
+    .td
+      label Country:
+      = employee.country
+    .td
+      label Active?
+      = employee.active
+    .td
+      label Company
+      = employee.company_id
+    .td
+      label Show
+      = link_to employee do
+        sl-icon name="eye"

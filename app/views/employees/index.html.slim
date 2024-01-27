@@ -1,20 +1,39 @@
-p style="color: green" = notice
+.fixed style="color: green" = notice
 
-.flex.justify-between.w-full.mb-2
-  h2 Employees
-  sl-button variant="primary" href="#{new_employee_path}" circle=true
-    sl-icon name="plus"
-
-.table.w-full id="employees"
-  .tr
-    .th First name
-    .th Last name
-    .th Phone
-    .th Email
-    .th Birthday
-    .th Country
-    .th Active
-    .th Company
-    .th
-  - @employees.each do |employee|
-    = render employee
+.layout
+  .header
+    .flex.justify-between
+      h2 Employees
+      sl-button variant="primary" href="#{new_employee_path}" circle=true
+        sl-icon name="plus"
+  .topbar
+    = form_with method: :get do |form|
+      sl-button-group
+        sl-input[
+          name = :search
+          size = :small
+          value = params[:search]
+        ]
+        sl-button[
+          size = :small
+          type = :submit
+          variant = :primary
+        ] Search
+  .sidebar
+    | Persistent checkbox filters go here
+  .content.table-wrapper
+    .table.w-full id="employees"
+      .tr.sticky.top-0
+        .th First name
+        .th Last name
+        .th Phone
+        .th Email
+        .th Birthday
+        .th Country
+        .th Active
+        .th Company
+        .th
+      - @employees.each do |employee|
+        = render employee
+  .footer
+    | Footer content

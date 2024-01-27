@@ -1,0 +1,8 @@
+sl-button-group {
+  sl-input::part(form-control-input) {
+    margin: 0;
+  }
+  sl-input::part(base) {
+    border-radius: 100px 0 0 100px;
+  }
+}
