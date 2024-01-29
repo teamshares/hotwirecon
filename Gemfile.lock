@@ -115,6 +115,10 @@ GEM
     google-protobuf (3.25.2-x86_64-linux)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    importmap-rails (2.0.1)
+      actionpack (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
     io-console (0.7.1)
     irb (1.11.1)
       rdoc
@@ -287,6 +291,7 @@ DEPENDENCIES
   dartsass-rails (~> 0.5.0)
   debug
   faker (~> 3.2)
+  importmap-rails (~> 2.0)
   jbuilder
   pagy
   pg (~> 1.1)

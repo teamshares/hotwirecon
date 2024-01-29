@@ -72,3 +72,5 @@ gem 'pagy'
 gem "slim-rails", "~> 3.6"
 
 gem "dartsass-rails", "~> 0.5.0"
+
+gem "importmap-rails", "~> 2.0"

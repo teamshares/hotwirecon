@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://esm.sh/@teamshares/shoelace@2.0.0/cdn/themes/light.css" />
     <link rel="stylesheet" href="https://esm.sh/@teamshares/shoelace@2.0.0/cdn/styles/index.css" />
 
+    <%= javascript_importmap_tags %>
+
     <!-- Import Tailwind typography plugin and related classes -->
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <style type="text/tailwindcss">
@@ -41,9 +43,6 @@
         .ts-text-error { @apply text-red-700; }
       }
     </style>
-
-    <!-- Import Shoelace itself -->
-    <script type='module' src='https://esm.sh/@teamshares/shoelace@2.0.0/dist/shoelace.js'></script>
   </head>
   <body>
     <%= yield %>
