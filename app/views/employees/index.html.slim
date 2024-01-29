@@ -1,19 +1,23 @@
 .fixed style="color: green" = notice
 
-.layout
-  .header
-    .flex.justify-between
+.layout controller="employees"
+  .header.time-marker data-timestamp=Time.zone.now.strftime('%H:%M:%S')
+    .flex.justify-between.flash-on-load
       h2 Employees
       sl-button variant="primary" href="#{new_employee_path}" circle=true
-        sl-icon name="plus"
+        sl-icon library="fa" name="fas-plus"
   .topbar
-    = form_with method: :get do |form|
+    = form_with url: "/employees",
+      method: :get,
+      data: { turbo_frame: :results } do |form|
       sl-button-group
-        sl-input[
-          name = :search
-          size = :small
-          value = params[:search]
-        ]
+        = form.search_field :search, oninput: "this.form.requestSubmit();"
+        / sl-input[
+        /   name = :search
+        /   size = :small
+        /   value = params[:search]
+        /   data-employees-target = "searchInput"
+        / ]
         sl-button[
           size = :small
           type = :submit
@@ -22,18 +26,25 @@
   .sidebar
     | Persistent checkbox filters go here
   .content.table-wrapper
-    .table.w-full id="employees"
-      .tr.sticky.top-0
-        .th First name
-        .th Last name
-        .th Phone
-        .th Email
-        .th Birthday
-        .th Country
-        .th Active
-        .th Company
-        .th
-      - @employees.each do |employee|
-        = render employee
+    = turbo_frame_tag :results
+      .table.w-full.time-marker[
+          data-timestamp = Time.zone.now.strftime('%H:%M:%S')
+          id="employees"
+        ]
+        .tr.sticky.top-0.flash-on-load
+          .th First name
+          .th Last name
+          .th Phone
+          .th Email
+          .th Birthday
+          .th Country
+          .th Active
+          .th Company
+          .th
+        - if @employees.any?
+          - @employees.each do |employee|
+            = render employee
+        - else
+          | No matches
   .footer
     | Footer content
