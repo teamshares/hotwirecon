@@ -27,6 +27,10 @@ body {
 }
 .sidebar {
   grid-area: sidebar;
+  li {
+    list-style: none;
+    padding: 0;
+  }
 }
 .content {
   grid-area: content;

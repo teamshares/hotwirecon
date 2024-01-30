@@ -1,34 +1,47 @@
 .fixed style="color: green" = notice
 
 .layout controller="employees"
-  .header.time-marker data-timestamp=Time.zone.now.strftime('%H:%M:%S')
+  .header.time-marker data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
     .flex.justify-between.flash-on-load
       h2 Employees
-      sl-button variant="primary" href="#{new_employee_path}" circle=true
-        sl-icon library="fa" name="fas-plus"
+      / sl-button variant="primary" href="#{new_employee_path}" circle=true
+      /   sl-icon library="fa" name="fas-plus"
   .topbar
     = form_with url: "/employees",
       method: :get,
-      data: { turbo_frame: :results } do |form|
-      sl-button-group
-        = form.search_field :search, oninput: "this.form.requestSubmit();"
+      data: {\
+        turbo_frame: :results,
+        turbo_action: :advance,
+      },
+      id: :search_form do |form|
+      = form.search_field :search, value: params[:search], oninput: "this.form.requestSubmit();"
+      / sl-button-group
         / sl-input[
         /   name = :search
         /   size = :small
         /   value = params[:search]
         /   data-employees-target = "searchInput"
         / ]
-        sl-button[
-          size = :small
-          type = :submit
-          variant = :primary
-        ] Search
+        / sl-button[
+        /   size = :small
+        /   type = :submit
+        /   variant = :primary
+        / ] Search
   .sidebar
-    | Persistent checkbox filters go here
+    / - Company.all.each do |company|
+    /   li
+    /     sl-checkbox[
+    /       name=:company
+    /       value="#{company.name}"
+    /       form=:search_form
+    /     ]
+    /       = company.name
+
+
   .content.table-wrapper
-    = turbo_frame_tag :results
+    = turbo_frame_tag :results, data: { turbo_action: :advance } do
       .table.w-full.time-marker[
-          data-timestamp = Time.zone.now.strftime('%H:%M:%S')
+          data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
           id="employees"
         ]
         .tr.sticky.top-0.flash-on-load
