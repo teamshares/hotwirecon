@@ -15,7 +15,7 @@
       },
       id: :search_form do |form|
       sl-button-group
-        = form.search_field :search, value: params[:search], oninput: "this.form.requestSubmit();"
+        = form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit();"
         / sl-input[
         /   name = :search
         /   size = :small

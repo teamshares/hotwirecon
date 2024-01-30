@@ -2,16 +2,16 @@
   .group
     .td
       label First:
-      = highlight employee.first_name, params[:search]
+      = highlight employee.first_name, params[:query]
     .td
       label Last:
-      = highlight employee.last_name, params[:search]
+      = highlight employee.last_name, params[:query]
     .td
       label Phone:
       = employee.phone
     .td
       label Email:
-      = highlight employee.email, params[:search]
+      = highlight employee.email, params[:query]
   .group
     .td
       label Birthday:
