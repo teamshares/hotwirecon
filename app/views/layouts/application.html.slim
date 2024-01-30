@@ -11,11 +11,11 @@ html.sl-theme-light
 
     link rel="stylesheet" href="https://esm.sh/@teamshares/shoelace@2.0.0/cdn/themes/light.css"
     link rel="stylesheet" href="https://esm.sh/@teamshares/shoelace@2.0.0/cdn/styles/index.css"
-
     script src="https://cdn.tailwindcss.com"
+    = stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"
+
     = javascript_importmap_tags
 
-    = stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"
   body
     = yield
 
