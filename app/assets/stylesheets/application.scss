@@ -63,7 +63,7 @@ body {
     z-index: 100;
     font-size: 10px;
     opacity: var(--hover-opacity);
-    transition: all 0.25s;
+    pointer-events: none;
   }
 
   &::after {
@@ -73,6 +73,7 @@ body {
     outline: 2px dotted #fcfd;
     opacity: var(--hover-opacity);
     transition: all 0.25s;
+    pointer-events: none;
   }
 }
 
@@ -86,6 +87,7 @@ body {
     opacity: 0;
     animation: 500ms linear flashin;
     background-color: #ff0;
+    pointer-events: none;
   }
 }
 
