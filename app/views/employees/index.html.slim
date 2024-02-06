@@ -37,6 +37,7 @@
 
   .content.table-wrapper
     = turbo_frame_tag :results, data: { turbo_action: :advance } do
+      = turbo_stream_from :employees
       .table.w-full.time-marker[
           data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
           id="employees"
