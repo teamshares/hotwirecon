@@ -8,16 +8,31 @@ class EmployeesController < ApplicationController
                  end
   end
 
+  def new
+    @employee = Employee.new
+  end
+
   def show
-    @employee = Employee.find(params[:id])
+    @employee = Employee.find_by(id: params[:id])
+    redirect_to employees_path if @employee.nil?
   end
 
   def edit
-    @employee = Employee.find(params[:id])
+    @employee = Employee.find_by(id: params[:id])
+    redirect_to employees_path if @employee.nil?
+  end
+
+  def destroy
+    @employee = Employee.find_by(id: params[:id])
+    @employee.destroy if @employee.present?
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@employee) }
+    end
   end
 
   def update
-    @employee = Employee.find(params[:id])
+    @employee = Employee.find_by(id: params[:id])
+    redirect_to employees_path if @employee.nil?
 
     if @employee.update(employee_params)
       redirect_to @employee
@@ -25,10 +40,19 @@ class EmployeesController < ApplicationController
       render :edit
     end
   end
+
+  def create
+    @employee = Employee.new(employee_params)
+    if @employee.save
+      redirect_to @employee
+    else
+      raise @employee.errors.inspect
+    end
+  end
 end
 
 private 
 
 def employee_params
-  params.require(:employee).permit(:first_name, :last_name, :email, :drivers_license)
+  params.require(:employee).permit(:first_name, :last_name, :email, :drivers_license, :phone, :birthday, :country, :active, :company_id)
 end

@@ -32,3 +32,5 @@
       label.responsive-label Show
       = link_to employee, target: "_top" do
         sl-icon library="fa" name="fas-eye"
+    .td
+      = button_to "Destroy this employee", employee_path(employee), method: :delete
