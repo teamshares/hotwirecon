@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
-gem "rails", "7.0.8"
+gem "rails", "7.1.3"
 
 # Teamshares rails engine for shared code
 gem "teamshares_rails", git: "https://github.com/teamshares/teamshares-rails.git", branch: "main"
@@ -43,3 +43,5 @@ gem "teamshares_rails", git: "https://github.com/teamshares/teamshares-rails.git
 #   gem "simplecov", "0.22.0", require: false
 #   gem "webmock", "3.19.1"
 # end
+
+gem "faker", "~> 3.2"

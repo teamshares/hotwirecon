@@ -1,6 +1,7 @@
 @import '@teamshares/design-system';
-@import "table";
+@import "tables"; // Should be part of design-system, but something is borked
 @import "form";
+@import "employees";
 
 body {
   font-family: "Inter";
