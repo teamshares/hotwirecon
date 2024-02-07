@@ -4,8 +4,6 @@
   .header.time-marker data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
     .flex.justify-between.flash-on-load
       h2 Employees
-      sl-button variant="primary" href="#{new_employee_path}" circle=true
-        sl-icon library="fa" name="fas-plus"
   .topbar
     = form_with url: "/employees",
       method: :get,

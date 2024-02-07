@@ -1,6 +1,5 @@
 sl-button-group {
-  input {
-    border: 5px solid red;
+  input[type] {
     border-radius: 100px 0 0 100px;
     outline: none;
     padding: 0 1rem;
@@ -11,4 +10,8 @@ sl-button-group {
   sl-input::part(base) {
     border-radius: 100px 0 0 100px;
   }
+}
+
+.test-class {
+  background: orange;
 }
