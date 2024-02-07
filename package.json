@@ -1,0 +1,23 @@
+{
+  "name": "HotwireCon",
+  "description": "The app used for Hotwire Con",
+  "private": true,
+  "engines": {
+    "node": "20.x"
+  },
+  "devDependencies": {
+    "concurrently": "8.2.2",
+    "husky": "8.0.3",
+    "lint-staged": "15.0.2"
+  },
+  "dependencies": {
+    "@teamshares/design-system": "https://github.com/teamshares/design-system.git#main"
+  },
+  "scripts": {
+    "build": "node esbuild.config.js",
+    "build:css": "postcss ./app/frontend/stylesheets/*.scss --ext css --dir ./app/assets/builds",
+    "build:all": "concurrently 'yarn build' 'yarn build:css'",
+    "lint": "bundle exec rubocop",
+    "dev": "bin/dev"
+  }
+}

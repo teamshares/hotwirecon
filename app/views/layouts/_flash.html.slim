@@ -1,0 +1,6 @@
+- flash.map do |type, message|
+  - classes = type == 'alert' ? "border-red-600 bg-red-500 text-gray-900" : "border-green-500 bg-green-400 text-green-900"
+  .flash-message.border-b.flex.justify-between.p-5.m-0[class=classes data-test-id="alert" data-controller="toggle" data-toggle-target="toggleable"]
+    .flex-grow-1.text-sm.flex.flex-col
+      .font-semibold
+        = message.html_safe

@@ -1,3 +1,7 @@
+@import '@teamshares/design-system';
+@import "table";
+@import "form";
+
 body {
   font-family: "Inter";
   padding: 0;
@@ -94,11 +98,8 @@ body {
 @keyframes flashin {
   0% {
     opacity: .8;
-  } 
+  }
   100% {
     opacity: 0;
   }
 }
-
-@import "table";
-@import "form";
