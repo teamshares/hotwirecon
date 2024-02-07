@@ -1,8 +1,12 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-if ! gem list foreman -i --silent; then
-  echo "Installing foreman..."
-  gem install foreman
+if ! overmind --version &> /dev/null
+then
+  echo "Installing overmind (see: https://github.com/DarthSim/overmind)..."
+  brew install overmind
 fi
 
-exec foreman start -f Procfile.dev "$@"
+# If this directory exists, any local asset changes will be ignored...
+rm -rf public/assets
+
+OVERMIND_PORT=3001 overmind start -f Procfile.dev

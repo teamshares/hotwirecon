@@ -1,18 +1,19 @@
 .table-wrapper {
   container-type: inline-size;
+
   .table {
     display: table;
   }
-  
+
   .tr {
     display: table-row;
     width: auto;
   }
-  
+
   .tr:nth-child(odd) {
     background-color: #3331;
   }
-  
+
   .tr:nth-child(even) {
     background-color: #ccc1;
   }
@@ -20,7 +21,7 @@
   .group {
     display: contents;
   }
-  
+
   .th, .td {
     display: table-cell;
     padding: 0.1rem 0.5rem;
@@ -28,19 +29,19 @@
     max-width: 34rem;
     overflow: hidden;
   }
-  
+
   .td {
     label {
       display: none;
     }
   }
-  
+
   .th {
     font-weight: bold;
     background-color: #ddd;
   }
 
-  @container (max-width: 1430px) {
+  @container (max-width: 600px) {
     .table, .tr, .td {
       display: block;
       max-width: 100%;
@@ -58,7 +59,7 @@
       flex-flow: row wrap;
       // justify-content: space-between;
     }
-    
+
     .tr {
       padding: 1rem;
       display: flex;
@@ -80,13 +81,9 @@
         font-weight: bold;
       }
     }
+
     .th {
       display: none;
     }
   }
 }
-
-
-
-
-
