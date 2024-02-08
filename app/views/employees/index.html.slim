@@ -42,18 +42,18 @@
           data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
           id="employees"
         ]
-        .thead
-          .tr.top-0.flash-on-load
-            .th First name
-            .th Last name
-            .th Phone
-            .th Email
-            .th Birthday
-            .th Country
-            .th Active
-            .th Company
-            .th License
-            .th
+        .tr.sticky.top-0.flash-on-load
+          .th First name
+          .th Last name
+          .th Phone
+          .th Email
+          .th Birthday
+          .th Country
+          .th Active
+          .th Company
+          .th License
+          .th
+          .th
         - if @employees.any?
           - @employees.each do |employee|
             = render employee
