@@ -27,6 +27,7 @@ class EmployeesController < ApplicationController
     @employee.destroy if @employee.present?
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove(@employee) }
+      format.html { redirect_to employees_path }
     end
   end
 

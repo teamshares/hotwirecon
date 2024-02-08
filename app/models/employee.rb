@@ -5,6 +5,10 @@ class Employee < ApplicationRecord
     broadcast_replace_to "employees", locals: { employee: self }
   }
 
+  after_destroy_commit -> {
+    broadcast_remove_to "employees"
+  }
+
   after_create_commit -> {
     broadcast_append_to "employees"
   }
