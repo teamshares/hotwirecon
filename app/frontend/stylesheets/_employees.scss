@@ -1,0 +1,18 @@
+.table-wrapper {
+  .tr:nth-child(odd) {
+    background-color: #3331;
+  }
+  .tr:nth-child(even) {
+    background-color: #ccc1;
+  }
+  .th, .td {
+    padding: 0.1rem 0.5rem;
+    white-space: nowrap;
+    max-width: 34rem;
+    overflow: hidden;
+  }
+  .th {
+    font-weight: bold;
+    background-color: #ddd;
+  }
+}

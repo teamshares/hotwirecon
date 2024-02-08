@@ -51,6 +51,8 @@
           .th Active
           .th Company
           .th
+          .th
+          .th
         - if @employees.any?
           - @employees.each do |employee|
             = render employee

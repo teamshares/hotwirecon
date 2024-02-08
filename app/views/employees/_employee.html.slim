@@ -1,31 +1,37 @@
 .tr.flash-on-load id=dom_id(employee)
-  .group
+  .responsive-row-group
     .td
-      label First:
+      label.responsive-label First:
       = highlight employee.first_name, params[:query]
     .td
-      label Last:
+      label.responsive-label Last:
       = highlight employee.last_name, params[:query]
     .td
-      label Phone:
+      label.responsive-label Phone:
       = employee.phone
     .td
-      label Email:
+      label.responsive-label Email:
       = highlight employee.email, params[:query]
-  .group
+  .responsive-row-group
     .td
-      label Birthday:
+      label.responsive-label Birthday:
       = employee.birthday
     .td
-      label Country:
+      label.responsive-label Country:
       = employee.country
     .td
-      label Active?
+      label.responsive-label Active?
       = employee.active
     .td
-      label Company
+      label.responsive-label Company
       = employee.company_id
     .td
-      label Show
-      = link_to employee do
+      label.responsive-label Drivers License
+      = employee.drivers_license
+    .td
+      label.responsive-label Show
+      = link_to employee, target: "_top" do
         sl-icon library="fa" name="fas-eye"
+    .td
+      = button_to employee_path(employee), method: :delete do
+        sl-icon library="fa" name="fas-trash"
