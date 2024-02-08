@@ -11,7 +11,7 @@
     "lint-staged": "15.0.2"
   },
   "dependencies": {
-    "@teamshares/design-system": "teamshares/design-system.git#MAD/postcss-class-cleanup"
+    "@teamshares/design-system": "teamshares/design-system.git#MAD/table-css"
   },
   "scripts": {
     "build": "node esbuild.config.js",

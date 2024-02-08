@@ -659,9 +659,9 @@
     lodash.merge "^4.6.2"
     postcss-selector-parser "6.0.10"
 
-"@teamshares/design-system@teamshares/design-system.git#MAD/postcss-class-cleanup":
+"@teamshares/design-system@teamshares/design-system.git#MAD/table-css":
   version "1.1.0"
-  resolved "https://codeload.github.com/teamshares/design-system/tar.gz/b00ab2ac5281e2232497f12345bfcbf568b7db78"
+  resolved "https://codeload.github.com/teamshares/design-system/tar.gz/34f86b97c6b6c1d6cd50cbf11dba59820078ddf3"
   dependencies:
     "@honeybadger-io/js" "^6.4.1"
     "@hotwired/stimulus" "^3.2.2"
