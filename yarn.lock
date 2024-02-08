@@ -659,9 +659,9 @@
     lodash.merge "^4.6.2"
     postcss-selector-parser "6.0.10"
 
-"@teamshares/design-system@https://github.com/teamshares/design-system.git#main":
+"@teamshares/design-system@teamshares/design-system.git#MAD/table-css":
   version "1.1.0"
-  resolved "https://github.com/teamshares/design-system.git#7838602df6f8ab5f04ab4d9d7c4a515a07499e74"
+  resolved "https://codeload.github.com/teamshares/design-system/tar.gz/34f86b97c6b6c1d6cd50cbf11dba59820078ddf3"
   dependencies:
     "@honeybadger-io/js" "^6.4.1"
     "@hotwired/stimulus" "^3.2.2"
