@@ -1,11 +1,13 @@
 p style="color: green" = notice
 
 
-/ .table.max-w-4xl.border.border-gray-300.p-4
-/   = render @employee
+.content.mb-4.max-w-2xl
+  .table-wrapper
+    .table.container-4xl
+      = render @employee
+  .flex.flex-wrap.gap-2.mt-4
+    sl-button.w-48 href=edit_employee_path(@employee) Edit this employee
+    sl-button.w-48 href=employees_path Back to employees
+    .inline= button_to @employee, method: :delete do
+      sl-button.w-48 Destroy this employee
 
-sl-button-group
-  sl-button href=edit_employee_path(@employee) Edit this employee
-  sl-button href=employees_path Back to employees
-  = button_to @employee, method: :delete do
-    sl-button Destroy this employee
