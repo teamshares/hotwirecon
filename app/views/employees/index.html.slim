@@ -4,6 +4,8 @@
   .header.time-marker data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
     .flex.justify-between.flash-on-load
       h2 Employees
+      sl-button variant="primary" href="#{new_employee_path}" circle=true
+        sl-icon library="fa" name="fas-plus"
   .topbar
     = form_with url: "/employees",
       method: :get,
@@ -35,28 +37,7 @@
         ]
           = company.name
 
-  .content.table-wrapper
-    = turbo_frame_tag :results, data: { turbo_action: :advance } do
-      .table.w-full.time-marker[
-          data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
-          id="employees"
-        ]
-        .tr.sticky.top-0.flash-on-load
-          .th First name
-          .th Last name
-          .th Phone
-          .th Email
-          .th Birthday
-          .th Country
-          .th Active
-          .th Company
-          .th License
-          .th
-          .th
-        - if @employees.any?
-          - @employees.each do |employee|
-            = render employee
-        - else
-          | No matches
+  = render "employees", employees: @employees
+
   .footer
     | Footer content
