@@ -1,4 +1,4 @@
-.tr.flash-on-load id=dom_id(employee)
+.tr.flash-on-load id=dom_id(employee) data-action="click->employees#show" data-href=employee_path(employee)
   .td
     label.responsive-label First:
     = highlight employee.first_name, params[:query]

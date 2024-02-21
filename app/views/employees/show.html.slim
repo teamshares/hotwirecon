@@ -1,13 +1,15 @@
-p style="color: green" = notice
+= turbo_frame_tag :results
+  p style="color: green" = notice
 
-
-.content.mb-4.max-w-2xl
-  .table-wrapper
-    .table.container-4xl
-      = render @employee
-  .flex.flex-wrap.gap-2.mt-4
-    sl-button.w-48 href=edit_employee_path(@employee) Edit this employee
-    sl-button.w-48 href=employees_path Back to employees
-    .inline= button_to @employee, method: :delete do
-      sl-button.w-48 Destroy this employee
+  .content
+    .table-wrapper
+      .table.container-xl.time-marker[
+        data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
+      ]
+        = render @employee
+    .flex.flex-wrap.gap-2.mt-4
+      sl-button.w-48 href=edit_employee_path(@employee) Edit this employee
+      sl-button.w-48 href=employees_path Back to employees
+      .inline= button_to @employee, method: :delete do
+        sl-button.w-48 Destroy this employee
 

@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/teamshares/teamshares-rails.git
   revision: 93a9a081a1eb8a159734e4aa53bc5d533381b52f
-  tag: v1.1.0
+  branch: v1.1.0
   specs:
     teamshares_rails (1.1.0)
       aasm (= 5.5.0)
@@ -167,7 +167,7 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     honeybadger (5.4.1)
-    htmlbeautifier (1.4.2)
+    htmlbeautifier (1.4.3)
     htmlentities (4.3.4)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -180,7 +180,8 @@ GEM
     json (2.7.1)
     json-schema (4.1.1)
       addressable (>= 2.8)
-    jwt (2.7.1)
+    jwt (2.8.0)
+      base64
     language_server-protocol (3.17.0.3)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -325,14 +326,14 @@ GEM
     rdoc (6.6.2)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
-    redis (5.0.8)
+    redis (5.1.0)
       redis-client (>= 0.17.0)
-    redis-client (0.19.1)
+    redis-client (0.20.0)
       connection_pool
     regexp_parser (2.9.0)
     reline (0.4.2)
       io-console (~> 0.5)
-    request_store (1.5.1)
+    request_store (1.6.0)
       rack (>= 1.4)
     rexml (3.2.6)
     rouge (4.2.0)
@@ -388,7 +389,7 @@ GEM
     ruby-next-core (1.0.1)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
-    sidekiq (7.2.1)
+    sidekiq (7.2.2)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)

@@ -12,6 +12,16 @@ sl-button-group {
   }
 }
 
+.edit-employee {
+  .td {
+    @apply align-middle leading-tight w-auto;
+
+    input[type='text'] {
+      @apply text-sm leading-tight p-1 w-full;
+    }
+  }
+}
+
 .test-class {
   background: orange;
 }
