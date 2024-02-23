@@ -1,0 +1,18 @@
+.td[
+  id="#{dom_id(@employee)}_#{@key}"
+  class=(@nowrap ? "whitespace-nowrap" : "")
+  data-action="click->controller#showForm"
+  data-controller-initial-value=@value
+]
+  .display data-controller-target="display"
+    label.responsive-label @key.humanize
+    - if @highlight 
+      = highlight @value, params[:query]
+    - else
+      = @value
+  .edit.opacity-0 data-controller-target="edit"
+    = form_with(model: @employee, data: { "controller-target": "form"}) do |form|
+      .responsive-label= form.label @key.to_s.humanize
+      = form.text_field @key, data: { "controller-target": "input", action: "focusout->controller#onFocusOut"}
+
+

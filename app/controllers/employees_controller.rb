@@ -36,9 +36,9 @@ class EmployeesController < ApplicationController
     redirect_to employees_path if @employee.nil?
 
     if @employee.update(employee_params)
-      redirect_to @employee
+      render turbo_stream: turbo_stream.replace(@employee)
     else
-      render :edit
+      redirect_to employees_path
     end
   end
 
@@ -52,7 +52,7 @@ class EmployeesController < ApplicationController
   end
 end
 
-private 
+private
 
 def employee_params
   params.require(:employee).permit(:first_name, :last_name, :email, :drivers_license, :phone, :birthday, :country, :active, :company_id)
