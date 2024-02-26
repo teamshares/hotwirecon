@@ -661,7 +661,7 @@
 
 "@teamshares/design-system@teamshares/design-system.git#MAD/table-css":
   version "1.1.0"
-  resolved "https://codeload.github.com/teamshares/design-system/tar.gz/22d3645939df18396992d271b692f8df7515a768"
+  resolved "https://codeload.github.com/teamshares/design-system/tar.gz/6bc43e2acccb7e07595d51de105b2e794556762b"
   dependencies:
     "@honeybadger-io/js" "^6.4.1"
     "@hotwired/stimulus" "^3.2.2"
