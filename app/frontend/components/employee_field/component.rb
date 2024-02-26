@@ -9,17 +9,19 @@ class EmployeeField::Component < ApplicationComponent
   def initialize(employee:, key:, nowrap: false, highlight: false)
     @employee = employee
     @key = key
-    @value = value(employee, key)
+    @value = employee[key]
+    @display_value = display_value(employee, key)
     @nowrap = nowrap
     @highlight = highlight
+    @companies = Company.all
     super
   end
 
   private
 
-  def value(employee, key)
+  def display_value(employee, key)
     if key == :company_id
-      return Company.find_by(id: employee[key]).name
+      return employee.company.name
     end
 
     employee[key]
