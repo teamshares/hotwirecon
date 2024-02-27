@@ -8,7 +8,7 @@ ruby "3.1.2"
 gem "rails", "7.1.3"
 
 # Teamshares rails engine for shared code
-gem "teamshares_rails", git: "https://github.com/teamshares/teamshares-rails.git", branch: "main"
+gem "teamshares_rails", git: "https://github.com/teamshares/teamshares-rails.git", branch: "v1.1.0"
 
 # group :development, :test do
 #   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

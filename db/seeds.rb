@@ -25,6 +25,7 @@ end
     birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
     country: Faker::Address.country,
     active: Faker::Boolean.boolean,
-    company_id: Company.all.sample.id
+    company_id: Company.all.sample.id,
+    drivers_license: Faker::DrivingLicence.usa_driving_licence
   )
 end

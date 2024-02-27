@@ -1,7 +1,6 @@
-  .content.table-wrapper
-    = turbo_frame_tag :results, data: { turbo_action: :advance } do
-      = turbo_stream_from :employees
-      .table.responsive.w-full.time-marker[
+  .content
+    .table-wrapper
+      .table.sticky-header.alternating-rows.container-xl.time-marker[
           data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
           id="employees"
         ]
@@ -15,7 +14,7 @@
             .th Country
             .th Active
             .th Company
-            .th License
+            .th DL #
             .th
             .th
         - if employees.any?
@@ -23,5 +22,3 @@
             = render employee
         - else
           | No matches
-  .footer
-    | Footer content

@@ -1,11 +1,14 @@
-h1 Editing employee
+p style="color: green" = notice
 
-.table
-  = render "form", employee: @employee
+.content
+  .table-wrapper
+    .table.container-xl.time-marker[
+      data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
+    ]
+      = render "form", employee: @employee
+  .flex.flex-wrap.gap-2.mt-4
+    sl-button.w-48 href=employee_path(@employee) Show this employee
+    sl-button.w-48 href=employees_path Back to employees
+    .inline= button_to @employee, method: :delete do
+      sl-button.w-48 Destroy this employee
 
-br
-
-div
-  = link_to "Show this employee", @employee
-  | |
-  = link_to "Back to employees", employees_path

@@ -1,47 +1,44 @@
 = form_with(model: employee) do |form|
   - if employee.errors.any?
-    div style="color: red"
-      h2
-        = pluralize(employee.errors.count, "error")
-        |  prohibited this employee from being saved:
-      ul
-        - employee.errors.each do |error|
-          li = error.full_message
+    .tr style="color: red"
+      .td colspan="6"
+        h2
+          = pluralize(employee.errors.count, "error")
+          |  prohibited this employee from being saved:
+        ul
+          - employee.errors.each do |error|
+            li = error.full_message
+  .tr.edit-employee
+    .td
+      = form.label :first_name, class: "responsive-label"
+      .w-24= form.text_field :first_name
+    .td
+      = form.label :last_name, class: "responsive-label"
+      .w-24= form.text_field :last_name
+    .td
+      = form.label :phone, class: "responsive-label"
+      .w-32= form.text_field :phone
+    .td
+      = form.label :email, class: "responsive-label"
+      .w-64= form.text_field :email
+    .td
+      = form.label :birthday, class: "responsive-label"
+      .w-24= form.text_field :birthday
+    .td
+      = form.label :country, class: "responsive-label"
+      .w-32= form.text_field :country
+    .td
+      = form.label :active, class: "responsive-label"
+      .w-8= form.check_box :active
+    .td
+      = form.label :company_id, class: "responsive-label"
+      .w-8= form.text_field :company_id
+    .td
+      = form.label :drivers_license, class: "responsive-label"
+      .w-24= form.text_field :drivers_license
+  div
+    sl-button[
+      type="submit"
+      variant="primary"
+    ] Update Employee
 
-  div
-    = form.label :first_name, style: "display: block"
-    = form.text_field :first_name
-
-  div
-    = form.label :last_name, style: "display: block"
-    = form.text_field :last_name
-
-  div
-    = form.label :phone, style: "display: block"
-    = form.text_field :phone
-
-  div
-    = form.label :email, style: "display: block"
-    = form.text_field :email
-
-  div
-    = form.label :birthday, style: "display: block"
-    = form.text_field :birthday
-
-  div
-    = form.label :country, style: "display: block"
-    = form.text_field :country
-
-  div
-    = form.label :active, style: "display: block"
-    = form.check_box :active
-
-  div
-    = form.label :company_id, style: "display: block"
-    = form.text_field :company_id
-
-  div
-    = form.label :drivers_license, style: "display: block"
-    = form.text_field :drivers_license
-  div
-    = form.submit
