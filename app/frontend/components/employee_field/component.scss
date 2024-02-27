@@ -1,0 +1,18 @@
+._component {
+   @apply relative cursor-pointer;
+
+   .edit {
+     @apply absolute inset-0 flex items-center;
+     @apply transition-opacity duration-200 ease-out;
+
+     form {
+      @apply w-full;
+     }
+
+     input[type=text] {
+       @apply text-sm w-full rounded-md;
+       padding: calc(0.5rem - 1px);
+     }
+   }
+}
+

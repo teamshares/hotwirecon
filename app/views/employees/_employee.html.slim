@@ -1,31 +1,13 @@
-.tr.flash-on-load id=dom_id(employee) data-action="click->employees#show" data-href=employee_path(employee)
-  .td
-    label.responsive-label First:
-    = highlight employee.first_name, params[:query]
-  .td
-    label.responsive-label Last:
-    = highlight employee.last_name, params[:query]
-  .td.whitespace-nowrap
-    label.responsive-label Phone:
-    = employee.phone
-  .td
-    label.responsive-label Email:
-    = highlight employee.email, params[:query]
-  .td.whitespace-nowrap
-    label.responsive-label Birthday:
-    = employee.birthday
-  .td
-    label.responsive-label Country:
-    = employee.country
-  .td
-    label.responsive-label Active?
-    = employee.active
-  .td
-    label.responsive-label Company
-    = employee.company_id
-  .td
-    label.responsive-label Drivers License
-    = employee.drivers_license
+.tr.flash-on-load id=dom_id(employee)
+  = render EmployeeField::Component.new(employee: employee, key: :first_name, highlight: true)
+  = render EmployeeField::Component.new(employee: employee, key: :last_name, highlight: true)
+  = render EmployeeField::Component.new(employee: employee, key: :phone, nowrap: true)
+  = render EmployeeField::Component.new(employee: employee, key: :email, highlight: true)
+  = render EmployeeField::Component.new(employee: employee, key: :birthday, nowrap:true)
+  = render EmployeeField::Component.new(employee: employee, key: :country, nowrap:true)
+  = render EmployeeField::Component.new(employee: employee, key: :active)
+  = render EmployeeField::Component.new(employee: employee, key: :company_id)
+  = render EmployeeField::Component.new(employee: employee, key: :drivers_license)
   .td
     label.responsive-label Show
     = link_to employee, target: "_top" do

@@ -4,16 +4,16 @@
   .header.time-marker data-timestamp=Time.zone.now.strftime('%H:%M:%S.%L')
     .flex.justify-between.flash-on-load
       h2 Employees
-      sl-button variant="primary" href="#{new_employee_path}" circle=true
+      sl-button variant="primary" href="#{new_employee_path}" circle=true size="medium"
         sl-icon library="fa" name="fas-plus"
-  .topbar
+  .sidebar
     = form_with url: "/employees",
-      method: :get,
-      data: {\
-        turbo_frame: :results,
-        turbo_action: :advance,
-      },
-      id: :search_form do |form|
+    method: :get,
+    data: {\
+      turbo_frame: :results,
+      turbo_action: :advance,
+    },
+    id: :search_form do |form|
       sl-button-group
         = form.search_field :query, value: params[:query], oninput: "this.form.requestSubmit();"
         / sl-input[
@@ -27,7 +27,6 @@
           type = :submit
           variant = :primary
         ] Search
-  .sidebar
     - Company.all.each do |company|
       li
         sl-checkbox[
@@ -38,6 +37,3 @@
           = company.name
 
   = render "employees", employees: @employees
-
-  .footer
-    | Footer content

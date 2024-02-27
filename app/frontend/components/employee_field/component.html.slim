@@ -1,0 +1,30 @@
+.td[
+  id="#{dom_id(@employee)}_#{@key}"
+  class=(@nowrap ? "whitespace-nowrap" : "")
+  data-action="click->controller#showForm"
+  data-controller-initial-value=@value
+]
+  .display data-controller-target="display"
+    label.responsive-label @key.humanize
+    span data-controller-target="valueDisplay"
+      - if @highlight 
+        = highlight @display_value, params[:query]
+      - elsif @key === :active
+        = check_box_tag :active, nil, @value
+      - else
+        = @display_value
+  .edit.opacity-0 data-controller-target="edit"
+    = form_with(model: @employee,
+      data: {\
+        "controller-target": "form",
+        "action": "keydown.enter->controller#onFormEnter keydown.esc->controller#onFormEsc",
+      }) do |form|
+      .responsive-label= form.label @key.to_s.humanize
+      - if @key === :active
+        .ml-2.mb-1 = form.check_box @key, data: { "controller-target": "input", action: "change->controller#onInputChange"}
+      - elsif @key === :company_id
+        = form.collection_select :company_id, Company.all, :id, :name, {}, { data: { "controller-target": "input", action: "change->controller#onInputChange"} }
+      - else
+        = form.text_field @key, data: { "controller-target": "input", action: "focusout->controller#onInputChange"}
+
+
