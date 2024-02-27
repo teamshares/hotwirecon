@@ -36,8 +36,9 @@
     .td
       = form.label :drivers_license, class: "responsive-label"
       .w-24= form.text_field :drivers_license
-  .tr
-    .td
-      = form.submit do
-        sl-button Update form=""
+  div
+    sl-button[
+      type="submit"
+      variant="primary"
+    ] Update Employee
 

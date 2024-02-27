@@ -16,12 +16,11 @@ body {
   display: grid;
   grid-template-areas:
     "header header"
-    "topbar topbar"
-    "sidebar content"
-    "footer footer";
+    "sidebar content";
   grid-template-columns: 300px auto;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto 1fr;
   row-gap: 1rem;
+  column-gap: 1rem;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -29,9 +28,6 @@ body {
 
 .header {
   grid-area: header;
-}
-.topbar {
-  grid-area: topbar;
 }
 .sidebar {
   grid-area: sidebar;
@@ -43,9 +39,6 @@ body {
 .content {
   grid-area: content;
   overflow: auto;
-}
-.footer {
-  grid-area: footer;
 }
 
 .time-marker {
@@ -89,17 +82,22 @@ body {
     inset: 0;
     position: absolute;
     opacity: 0;
-    animation: 500ms linear flashin;
+    animation: 500ms linear flash-in;
     background-color: #ff0;
     pointer-events: none;
   }
 }
 
-@keyframes flashin {
+@keyframes flash-in {
   0% {
     opacity: .8;
   }
   100% {
     opacity: 0;
   }
+}
+
+/* Override for bizarre alignment bug that only shows up in this app */
+sl-button[circle]::part(base) {
+  align-items: center;
 }
